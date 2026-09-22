@@ -1,0 +1,152 @@
+.team {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #060310;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.team__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.team__content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 0 6vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team__tag {
+  justify-content: center;
+}
+
+.team__glitch {
+  margin-top: 1.4rem;
+  font-size: clamp(1.8rem, 6vw, 3.6rem);
+  font-weight: 900;
+  color: var(--ink);
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.team__glitch::before,
+.team__glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  background: #060310;
+}
+
+.team__glitch::before {
+  color: var(--magenta-hot);
+  animation: glitchTop 4.5s infinite linear;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.team__glitch::after {
+  color: var(--iris);
+  animation: glitchBottom 5.5s infinite linear;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchTop {
+  0%, 90%, 100% { transform: translate(0, 0); opacity: 0; }
+  91% { transform: translate(-4px, -2px); opacity: 0.8; }
+  93% { transform: translate(3px, 1px); opacity: 0.8; }
+  95% { transform: translate(-2px, 0); opacity: 0.5; }
+  97% { opacity: 0; }
+}
+
+@keyframes glitchBottom {
+  0%, 92%, 100% { transform: translate(0, 0); opacity: 0; }
+  93% { transform: translate(4px, 1px); opacity: 0.8; }
+  95% { transform: translate(-3px, -1px); opacity: 0.8; }
+  97% { transform: translate(2px, 0); opacity: 0.4; }
+  98.5% { opacity: 0; }
+}
+
+.team__sub {
+  margin-top: 1.6rem;
+  font-size: 1.1rem;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+.team__sub2 {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+}
+
+.team__cards {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.6rem;
+}
+
+.team__card {
+  width: 64px;
+  height: 64px;
+  border: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink-faint);
+  animation: floatCard 3.4s ease-in-out infinite;
+}
+
+.team__card:nth-child(2) { animation-delay: 0.3s; }
+.team__card:nth-child(3) { animation-delay: 0.6s; }
+.team__card:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.team__status {
+  margin-top: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.team__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--magenta-hot);
+  box-shadow: 0 0 8px var(--magenta-hot);
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
