@@ -2,31 +2,23 @@ import React from 'react';
 import './RecruitmentBanner.css';
 
 const RecruitmentBanner = () => {
-  const scrollToRecruitment = () => {
-    const section = document.getElementById('recruitment');
-
-    if (section) {
-      const top = section.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top, behavior: 'instant' });
-    }
-  };
 
   const bannerContent = (
     <>
       <span className="highlight">
-        ✦ RECRUITMENT OPEN
+        ✦ REGISTRATIONS CLOSED
       </span>
 
       <span className="separator">•</span>
 
       <span>
-        BUILD THE FUTURE WITH US
+        THANK YOU FOR YOUR INTEREST
       </span>
 
       <span className="separator">•</span>
 
       <span>
-        JOIN FUTURIX
+        FUTURIX · SRMIST KTR
       </span>
 
       <span className="separator">•</span>
@@ -67,21 +59,7 @@ const RecruitmentBanner = () => {
 
       </div>
 
-      {/* JOIN US button */}
-      <button
-        type="button"
-        className="recruitment-banner__button"
-        onClick={scrollToRecruitment}
-      >
-        <span>JOIN US</span>
 
-        <span
-          className="arrow"
-          aria-hidden="true"
-        >
-          ↗
-        </span>
-      </button>
 
     </div>
   );
